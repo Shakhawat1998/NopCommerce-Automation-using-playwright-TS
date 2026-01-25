@@ -14,6 +14,9 @@ export class HomePage extends BasePage {
     await this.openURL("/");
   }
 
+    async clickRegister() {
+    await this.registerLink.click();
+  }
 
   getRegisterLink(): Locator {
     return this.registerLink;
