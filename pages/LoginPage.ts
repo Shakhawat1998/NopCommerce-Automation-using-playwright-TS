@@ -10,7 +10,7 @@ export class LoginPage extends BasePage {
   constructor(page: Page) {
     super(page);
 
-    // as provided
+  
     this.loginLink = page.locator("//a[normalize-space()='Log in']");
     this.emailField = page.locator("#Email");
     this.passwordField = page.locator("#Password");
