@@ -3,6 +3,7 @@ import { expect } from "@playwright/test";
 import { HomePage } from "../pages/HomePage";
 import { RegisterPage } from "../pages/RegisterPage";
 import { RandomUtils } from "../utils/randomUtils";
+import { userStore } from "../test-data/userStore";
 
 test("Click Register and verify Register page header", async ({ page }) => {
   const homePage = new HomePage(page);
@@ -56,6 +57,11 @@ test("Register user with only mandatory fields", async ({ page }) => {
 
     const email = RandomUtils.getRandomEmail("shakhawat", "gmail.com");
     const password = "Test@123";
+
+    userStore.registeredUser = {
+    email,
+    password
+  };
 
     
     await homePage.openHome();
