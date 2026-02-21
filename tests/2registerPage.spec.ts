@@ -15,7 +15,7 @@ test("Click Register and verify Register page header", async ({ page }) => {
 });
 
 
-test("Register user with all fields including DOB", async ({ page }) => {
+test("Register user with all fields", async ({ page }) => {
   const homePage = new HomePage(page);
   const registerPage = new RegisterPage(page);
 
