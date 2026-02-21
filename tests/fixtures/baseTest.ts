@@ -9,7 +9,7 @@ type WorkerFixtures = {
 };
 
 export const test = base.extend<Fixtures, WorkerFixtures>({
-  // ✅ ONE browser context for the whole worker
+
   sharedContext: [
     async ({ browser }, use) => {
       const context = await browser.newContext();
@@ -19,7 +19,7 @@ export const test = base.extend<Fixtures, WorkerFixtures>({
     { scope: "worker" },
   ],
 
-  // ✅ NEW page for every test, SAME shared context
+
   page: async ({ sharedContext }, use) => {
     const page = await sharedContext.newPage();
     await use(page);
