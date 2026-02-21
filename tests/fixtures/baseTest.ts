@@ -6,9 +6,11 @@ type Fixtures = {
 
 type WorkerFixtures = {
   sharedContext: BrowserContext;
+  sharedPage: Page;
 };
 
 export const test = base.extend<Fixtures, WorkerFixtures>({
+
 
   sharedContext: [
     async ({ browser }, use) => {
@@ -19,10 +21,21 @@ export const test = base.extend<Fixtures, WorkerFixtures>({
     { scope: "worker" },
   ],
 
+  
+  sharedPage: [
+    async ({ sharedContext }, use) => {
+      const page = await sharedContext.newPage();
+      await use(page);
+      await page.close();
+    },
+    { scope: "worker" },
+  ],
 
-  page: async ({ sharedContext }, use) => {
-    const page = await sharedContext.newPage();
-    await use(page);
-    await page.close();
+ 
+  page: async ({ sharedPage }, use) => {
+    await use(sharedPage);
   },
+
 });
+
+export { expect } from "@playwright/test";
