@@ -19,7 +19,6 @@ test("Register user with all fields", async ({ page }) => {
   const homePage = new HomePage(page);
   const registerPage = new RegisterPage(page);
 
-  const random = Math.floor(100 + Math.random() * 900);
   const email = RandomUtils.getRandomEmail("shakhawat", "gmail.com");
   const password = "Test@123";
 
@@ -43,4 +42,8 @@ test("Register user with all fields", async ({ page }) => {
   await registerPage.submitRegistration();
 
   await expect(registerPage.getResultText()).toBeVisible();
+
+  await homePage.clickLogout();
+
+  await expect(homePage.getRegisterLink()).toBeVisible();
 });
