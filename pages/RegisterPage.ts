@@ -13,6 +13,7 @@ export class RegisterPage {
   private privacyPolicy: Locator;
   private registerButton: Locator;
   private resultText: Locator;
+  private continueButton: Locator;
 
   
   private dobDay: Locator;
@@ -36,6 +37,8 @@ export class RegisterPage {
     this.dobDay = page.locator("//select[@name='DateOfBirthDay']");
     this.dobMonth = page.locator("//select[@name='DateOfBirthMonth']");
     this.dobYear = page.locator("//select[@name='DateOfBirthYear']");
+
+    this.continueButton = page.locator("//a[normalize-space()='Continue']");
   }
 
   getRegisterHeader(): Locator {
@@ -85,6 +88,10 @@ export class RegisterPage {
 
   async submitRegistration() {
     await this.registerButton.click();
+  }
+
+  async clickContinue() {
+  await this.continueButton.click();
   }
 
   getResultText(): Locator {

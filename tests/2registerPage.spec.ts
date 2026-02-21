@@ -47,3 +47,34 @@ test("Register user with all fields", async ({ page }) => {
 
   await expect(homePage.getRegisterLink()).toBeVisible();
 });
+
+
+test("Register user with only mandatory fields", async ({ page }) => {
+
+    const homePage = new HomePage(page);
+    const registerPage = new RegisterPage(page);
+
+    const email = RandomUtils.getRandomEmail("shakhawat", "gmail.com");
+    const password = "Test@123";
+
+    
+    await homePage.openHome();
+    await homePage.clickRegister();
+
+    
+    await registerPage.fillFirstName("Shakhawat");
+    await registerPage.fillLastName("Hossain");
+    await registerPage.fillEmail(email);
+    await registerPage.fillPassword(password);
+    await registerPage.fillConfirmPassword(password);
+    await registerPage.acceptPrivacyPolicy();
+
+    await registerPage.submitRegistration();
+
+    await expect(registerPage.getResultText()).toBeVisible();
+
+    await registerPage.clickContinue();
+
+    await homePage.clickLogout();
+
+  });
