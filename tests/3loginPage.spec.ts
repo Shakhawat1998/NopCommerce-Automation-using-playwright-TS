@@ -1,9 +1,11 @@
 import { test, expect } from "./fixtures/baseTest";
 import { LoginPage } from "../pages/LoginPage";
 import { userStore } from "../test-data/userStore";
+import { HomePage } from "../pages/HomePage";
 
 test("Login using user from mandatory registration test", async ({ page }) => {
   const loginPage = new LoginPage(page);
+  const homePage = new HomePage(page);
 
   const user = userStore.registeredUser;
   if (!user) {
@@ -17,5 +19,9 @@ test("Login using user from mandatory registration test", async ({ page }) => {
   await loginPage.typeEmail(user.email);
   await loginPage.typePassword(user.password);
   await loginPage.clickLoginButton();
+
+  await expect(homePage.getLogoutLink()).toBeVisible();
+
+
 
 });

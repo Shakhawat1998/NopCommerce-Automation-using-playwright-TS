@@ -27,4 +27,9 @@ export class HomePage extends BasePage {
   getRegisterLink(): Locator {
     return this.registerLink;
   }
+
+  getLogoutLink(): Locator {
+  return this.logoutLink;
+  }
+
 }
