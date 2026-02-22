@@ -12,3 +12,11 @@ test("Verify user is redirected to My Account page", async ({ page }) => {
   await expect(myAccountPage.getMyAccountHeading()).toBeVisible();
   
 });
+
+test("Verify user is redirected to address page", async ({ page }) => {
+
+  const myAccountPage = new MyAccountPage(page);
+    
+  await myAccountPage.clickAddressLink();
+
+});
