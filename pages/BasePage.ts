@@ -8,6 +8,6 @@ export class BasePage {
   }
 
   async openURL(path: string = "/") {
-    await this.page.goto(path); // baseURL is auto-used
+    await this.page.goto(path); 
   }
 }
