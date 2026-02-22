@@ -3,13 +3,15 @@ import { BasePage } from "./BasePage";
 
 export class HomePage extends BasePage {
   private registerLink: Locator;
-   private logoutLink: Locator;
+  private logoutLink: Locator;
+  private myAccountLink: Locator;
 
   constructor(page: Page) {
     super(page);
     
     this.registerLink = page.locator("//a[normalize-space()='Register']");
     this.logoutLink = page.locator("//a[normalize-space()='Log out']");
+    this.myAccountLink = page.locator("//a[@class='ico-account']");
   }
 
   async openHome() {
@@ -24,6 +26,10 @@ export class HomePage extends BasePage {
     await this.logoutLink.click();
   }
 
+   async clickMyAccount() {
+    await this.myAccountLink.click();
+  }
+
   getRegisterLink(): Locator {
     return this.registerLink;
   }
@@ -31,5 +37,7 @@ export class HomePage extends BasePage {
   getLogoutLink(): Locator {
   return this.logoutLink;
   }
+
+  
 
 }
