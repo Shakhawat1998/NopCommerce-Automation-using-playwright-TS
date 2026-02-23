@@ -23,3 +23,10 @@ test("Verify user is redirected to address page", async ({ page }) => {
   await expect(addressPage.getMyAccountAddressHeading()).toBeVisible();
 
 });
+
+
+test("Verify that new address is added by completing address form", async ({ page }) => {
+  const addressPage = new AddressPage(page);
+
+  await addressPage.clickAddNewAddressButton();
+});
