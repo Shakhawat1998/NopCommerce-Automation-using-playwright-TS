@@ -6,7 +6,7 @@ export class MyAccountPage extends BasePage {
   
   private myAccountHeading: Locator;
   private addressLink: Locator;
-private changePasswordLink: Locator;
+  private changePasswordLink: Locator;
 
   constructor(page: Page) {
     super(page);
