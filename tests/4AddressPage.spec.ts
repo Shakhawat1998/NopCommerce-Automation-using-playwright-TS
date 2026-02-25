@@ -33,6 +33,7 @@ test("Verify that new address is added by completing address form", async ({ pag
   await addressPage.clickAddNewAddressButton();
   await addressPage.fillAddressForm("Shakhawat", "Hossain", email, "236", "New York", "123 Main Street", "1234567890");
   await addressPage.clickSaveButton();
+  await expect(addressPage.getAddressAddedText()).toBeVisible();
 
 });
 

@@ -13,6 +13,7 @@ export class AddressPage extends BasePage {
   private emailInput: Locator;
   private phoneNumberInput: Locator;
   private saveButton: Locator;
+  addressAddedText: Locator;
 
   constructor(page: Page) {
     super(page);
@@ -27,6 +28,7 @@ export class AddressPage extends BasePage {
     this.address1Input = page.locator("#Address_Address1");
     this.phoneNumberInput = page.locator("#Address_PhoneNumber");
     this.saveButton = page.locator("//button[normalize-space()='Save']");
+    this.addressAddedText = page.locator(`//p[normalize-space()='The new address has been added successfully.']`);
   }
 
   getMyAccountAddressHeading(): Locator {
@@ -49,6 +51,10 @@ export class AddressPage extends BasePage {
 
   async clickSaveButton() {
     await this.saveButton.click();
+  }
+
+  getAddressAddedText(): Locator {
+    return this.addressAddedText;
   }
 
   
