@@ -3,6 +3,7 @@ import { HomePage } from "../pages/HomePage";
 import { MyAccountPage } from "../pages/MyAccountPage";
 import { AddressPage } from "../pages/AddressPage";
 import { RandomUtils } from "../utils/randomUtils";
+import { ChangePasswordPage } from "../pages/ChangePasswordPage";
 
 
 test("Verify user is redirected to My Account page", async ({ page }) => {
@@ -35,6 +36,20 @@ test("Verify that new address is added by completing address form", async ({ pag
   await addressPage.clickSaveButton();
   await expect(addressPage.getAddressAddedText()).toBeVisible();
 
+});
+
+
+test("Verify that new password is updated successfully", async ({ page }) => {
+  const myAccountPage = new MyAccountPage(page);
+  const changePasswordPage = new ChangePasswordPage(page);  
+  const oldPassword = "Test@123";
+  const newPassword = "NewTest@123";
+
+  await myAccountPage.clickChangePasswordLink();  
+  await changePasswordPage.fillOldPassword(oldPassword);
+  await changePasswordPage.fillNewPassword(newPassword);
+  await changePasswordPage.fillConfirmPassword(newPassword);
+  await changePasswordPage.clickChangePasswordButton(); 
 });
 
 
