@@ -38,6 +38,10 @@ export class HomePage extends BasePage {
   return this.logoutLink;
   }
 
+  async goBackToHomePage(){
+    await this.goToURL("/");
+  }
+
   
 
 }
