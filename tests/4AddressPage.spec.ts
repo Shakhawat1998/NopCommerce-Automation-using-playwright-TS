@@ -50,6 +50,8 @@ test("Verify that new password is updated successfully", async ({ page }) => {
   await changePasswordPage.fillNewPassword(newPassword);
   await changePasswordPage.fillConfirmPassword(newPassword);
   await changePasswordPage.clickChangePasswordButton(); 
+  await expect(changePasswordPage.getPasswordChangedText()).toBeVisible();
 });
+
 
 
