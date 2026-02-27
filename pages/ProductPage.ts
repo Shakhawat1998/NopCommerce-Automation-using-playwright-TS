@@ -17,7 +17,7 @@ export class ProductPage {
     this.ramDropdown = page.locator("#product_attribute_2");
     this.hddRadioButton = page.locator("#product_attribute_3_7");
     this.osRadioButton = page.locator(`//input[@id='product_attribute_4_8']`);
-    this.addToWishlistButton = page.getByRole('button', { name: 'Add to wishlist' });
+    this.addToWishlistButton = page.locator('#add-to-wishlist-button-1:visible')
     this.productAddedToWishlistText = page.locator(`//p[contains(normalize-space(), 'The product has been added to ')]`);
 
   }
@@ -39,7 +39,7 @@ export class ProductPage {
   }
 
   async clickAddToWishlistButton() {
-    await this.addToWishlistButton.nth(0).click();
+    await this.addToWishlistButton.click();
   }
 
   getProductAddedToWishlistText(): Locator {  
