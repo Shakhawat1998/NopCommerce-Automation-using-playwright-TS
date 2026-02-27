@@ -1,5 +1,6 @@
 import { HomePage } from "../pages/HomePage";
 import { ProductPage } from "../pages/ProductPage";
+import { WishlistPage } from "../pages/WishlistPage";
 import { expect, test } from "./fixtures/baseTest";
 
 
@@ -12,5 +13,12 @@ test("Verify product is added to wishlist successfully", async ({ page }) => {
     await productPage.clickHDDRadioButton();
     await productPage.clickOSRadioButton();
     await productPage.clickAddToWishlistButton();
-    await expect(productPage.getProductAddedToWishlistText()).toContainText("The product has been added to your wishlist");   
+    await expect.soft(productPage.getProductAddedToWishlistText()).toContainText("The product has been added to your wishlist");   
+});
+
+test("Verify wishlist page is not empty after adding product to wishlist", async ({ page }) => {
+    
+    const wishlistPage = new WishlistPage(page);
+    await wishlistPage.clickWishlistLink();
+    await expect(wishlistPage.getUpdateWishlistButton()).toBeVisible();
 });
