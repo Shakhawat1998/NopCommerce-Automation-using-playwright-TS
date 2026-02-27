@@ -39,7 +39,7 @@ export class ProductPage {
   }
 
   async clickAddToWishlistButton() {
-    await this.addToWishlistButton.nth(1).click();
+    await this.addToWishlistButton.nth(0).click();
   }
 
   getProductAddedToWishlistText(): Locator {  
