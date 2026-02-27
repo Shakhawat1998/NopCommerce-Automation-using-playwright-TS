@@ -9,6 +9,7 @@ export class ProductPage {
   private osRadioButton: Locator;
   private addToWishlistButton: Locator;
   private productAddedToWishlistText: Locator;
+  private wishlistTextCloseButton: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -19,6 +20,7 @@ export class ProductPage {
     this.osRadioButton = page.locator(`//input[@id='product_attribute_4_8']`);
     this.addToWishlistButton = page.locator('#add-to-wishlist-button-1:visible')
     this.productAddedToWishlistText = page.locator(`//p[contains(normalize-space(), 'The product has been added to ')]`);
+    this.wishlistTextCloseButton = page.locator("//span[@class='close']");
 
   }
 
@@ -46,5 +48,7 @@ export class ProductPage {
     return this.productAddedToWishlistText;
   }   
 
- 
+  async clickWishlistTextCloseButton() {
+    await this.wishlistTextCloseButton.click();
+  }
 }
