@@ -7,7 +7,7 @@ export class RandomUtils {
 
  
   static getRandomEmail(prefix: string, domain: string): string {
-    const random = this.getRandomNumber(100, 999);
+    const random = this.getRandomNumber(10000, 999999);
     return `${prefix}${random}@${domain}`;
   }
 }
