@@ -14,9 +14,7 @@ export const test = base.extend<Fixtures, WorkerFixtures>({
 
   sharedContext: [
     async ({ browser }, use) => {
-    const context = await browser.newContext({
-    viewport: { width: 1920, height: 1080 } 
-    });
+    const context = await browser.newContext();
       await use(context);
       await context.close();
     },

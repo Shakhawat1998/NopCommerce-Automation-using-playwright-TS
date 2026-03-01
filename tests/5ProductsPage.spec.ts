@@ -6,6 +6,7 @@ import { WishlistPage } from "../pages/WishlistPage";
 import { expect, test } from "./fixtures/baseTest";
 import { ComparePage } from '../pages/ComparePage';
 import { PageUtils } from '../utils/pageUtils';
+import { CheckoutPage } from '../pages/CheckOutPage';
 
 
 test("Verify product is added to wishlist successfully", async ({ page }) => {
@@ -59,5 +60,32 @@ test("Verify products are added to compare list successfully", async ({ page }) 
     const productNames = await comparePage.getComparedProductNames();
     expect(productNames.length).toBe(2);
 
+});
 
+test("Verify products are added to cart successfully", async ({ page }) => {
+    PageUtils.setDefaultTimeout(page, 60000);
+    const checkoutPage = new CheckoutPage(page);
+    await checkoutPage.goToElectronicsCategory();
+    await PageUtils.waitForTimeout(page, 1000);
+    await checkoutPage.addElectronicsProductToCart();
+    await PageUtils.waitForTimeout(page, 1000);
+    expect(checkoutPage.getProductAddedToCartText()).toBeVisible();
+    await PageUtils.waitForTimeout(page, 1000);
+    await checkoutPage.clickCloseTextButton();
+    await PageUtils.waitForTimeout(page, 1000);
+    await checkoutPage.goToApparelCategory();
+    await PageUtils.waitForTimeout(page, 1000);
+    await checkoutPage.addApparelProductToCart();
+    await PageUtils.waitForTimeout(page, 1000);
+    expect(checkoutPage.getProductAddedToCartText()).toBeVisible();
+    await PageUtils.waitForTimeout(page, 1000);
+    await checkoutPage.clickCloseTextButton();
+    await PageUtils.waitForTimeout(page, 1000);
+    await checkoutPage.goToDigitalDownloadsCategory();
+    await PageUtils.waitForTimeout(page, 1000);
+    await checkoutPage.addDigitalDownloadProductToCart();
+    await PageUtils.waitForTimeout(page, 1000);
+    expect(checkoutPage.getProductAddedToCartText()).toBeVisible();
+    await PageUtils.waitForTimeout(page, 1000);
+    await checkoutPage.clickCloseTextButton();
 });
