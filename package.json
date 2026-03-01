@@ -4,9 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "playwright test",
-    "allure:generate": "allure generate allure-results --clean -o allure-report",
-    "allure:open": "allure open allure-report"
+  "test:allure": "rimraf allure-results allure-report && playwright test && allure generate allure-results --clean -o allure-report && allure open allure-report"
   },
   "keywords": [],
   "author": "",
@@ -16,7 +14,8 @@
     "@playwright/test": "^1.58.0",
     "@types/node": "^25.0.9",
     "allure-commandline": "^2.36.0",
-    "allure-playwright": "^3.4.5"
+    "allure-playwright": "^3.4.5",
+    "rimraf": "^6.1.3"
   },
   "dependencies": {
     "dotenv": "^17.2.3"
