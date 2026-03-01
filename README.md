@@ -108,6 +108,18 @@ Add custom scripts in `package.json` as needed, e.g.:
 }
 ```
 
+## Allure Report 
+
+### Summary
+
+<img width="1919" height="906" alt="image" src="https://github.com/user-attachments/assets/a9bb8645-041c-42d5-b3c7-2335873e1c70" />
+
+### Behavior
+
+<img width="1919" height="914" alt="image" src="https://github.com/user-attachments/assets/df1c81e9-4e62-4f64-96d6-08176d7c6618" />
+
+
+
 
 ## Video
 
