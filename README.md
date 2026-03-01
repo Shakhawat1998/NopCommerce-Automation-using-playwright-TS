@@ -10,11 +10,13 @@ The following core test scenarios are automated in this project:
 - **Home Page**
    - Visit the Nopcommerce home page and verify the Register link is visible.
 
-- **User Registration**
    - Navigate to the Register page and verify the header.
    - Register a new user with all required fields and random email.
+    - Register a new user with all fields (including gender, date of birth, etc.).
+    - Register a new user with only mandatory fields.
+    - Click Continue after successful registration.
+    - Logout after registration and verify Register link is visible.
 
-- **User Login**
    - Login using credentials from a registered user and verify successful login (Logout link visible).
 
 - **My Account & Address Management**
