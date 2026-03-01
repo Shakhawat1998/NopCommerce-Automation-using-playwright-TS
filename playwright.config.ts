@@ -3,9 +3,9 @@ import * as dotenv from "dotenv";
 
 dotenv.config();
 
-if (!process.env.BASE_URL) {
-  throw new Error("BASE_URL is not defined in .env");
-}
+// if (!process.env.BASE_URL) {
+//   throw new Error("BASE_URL is not defined in .env");
+// }
 
 /**
  * Read environment variables from file.
