@@ -7,7 +7,7 @@ This project provides end-to-end automated testing for the Nopcommerce platform 
 ## Key Test Scenarios
 The following core test scenarios are automated in this project:
 
-- **Home Page**
+- **HomePage , Register & Login**
    - Visit the Nopcommerce home page and verify the Register link is visible.
 
    - Navigate to the Register page and verify the header.
